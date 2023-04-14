@@ -1,0 +1,17 @@
+' Clear the contents of the active sheet
+Dim xlApp As New Microsoft.Office.Interop.Excel.Application
+Dim xlBook As Microsoft.Office.Interop.Excel.Workbook = xlApp.Workbooks.Open("C:\Users\dholiveira\Desktop\CheatCodes\Teste.xlsx")
+Dim xlSheet As Microsoft.Office.Interop.Excel.Worksheet = CType(xlBook.ActiveSheet, Microsoft.Office.Interop.Excel.Worksheet)
+xlSheet.Cells.Clear()
+xlBook.Save()
+xlBook.Close()
+System.Runtime.InteropServices.Marshal.ReleaseComObject(xlSheet)
+System.Runtime.InteropServices.Marshal.ReleaseComObject(xlBook)
+System.Runtime.InteropServices.Marshal.ReleaseComObject(xlApp)
+xlSheet = Nothing
+xlBook = Nothing
+xlApp = Nothing
+
+COMENTÁRIO !!!
+Na linha 3 caso seja para selecionar uma Sheet específica usar o código
+Dim xlSheet As Microsoft.Office.Interop.Excel.Worksheet = CType(xlBook.Sheets("Sheet1"), Microsoft.Office.Interop.Excel.Worksheet)
